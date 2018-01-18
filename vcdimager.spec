@@ -10,7 +10,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 Requires: %{name}-libs = %{version}-%{release}
 Requires(post): info
 Requires(preun): info
-BuildRequires: libcdio-devel >= 0.72
+BuildRequires: libcdio-devel >= 2.0.0
 BuildRequires: libxml2-devel >= 2.3.8
 BuildRequires: zlib-devel
 BuildRequires: pkgconfig >= 0.9
@@ -40,7 +40,7 @@ Summary: Header files and library for VCDImager
 Group: Development/Libraries
 Requires: %{name}-libs = %{version}-%{release}
 Requires: pkgconfig
-Requires: libcdio-devel
+Requires: libcdio-devel >= 2.0.0
 
 %description devel
 VCDImager allows you to create VideoCD BIN/CUE CD images from mpeg
