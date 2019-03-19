@@ -15,6 +15,7 @@ BuildRequires: libxml2-devel >= 2.3.8
 BuildRequires: zlib-devel
 BuildRequires: pkgconfig >= 0.9
 BuildRequires: popt-devel
+BuildRequires: gcc-c++
 
 %description
 VCDImager allows you to create VideoCD BIN/CUE CD images from MPEG
