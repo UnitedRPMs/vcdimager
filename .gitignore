@@ -3,4 +3,6 @@ BUILDROOT/*
 RPMS/*
 SPECS/*
 SRPMS/*
-vcdimager*.tar.gz
+*.tar.gz
+.directory
+*.rpm
