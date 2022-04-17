@@ -1,11 +1,11 @@
 Summary: VideoCD (pre-)mastering and ripping tool
 Name: vcdimager
 Version: 2.0.1
-Release: 7%{?dist}
+Release: 8%{?dist}
 License: GPLv2+
 Group: Applications/Multimedia
 URL: http://www.gnu.org/software/vcdimager/
-Source: ftp://ftp.gnu.org/pub/gnu/vcdimager/vcdimager-%{version}.tar.gz
+Source: https://ftp.gnu.org/gnu/vcdimager/vcdimager-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 Requires: %{name}-libs = %{version}-%{release}
 Requires(post): info
@@ -16,6 +16,7 @@ BuildRequires: zlib-devel
 BuildRequires: pkgconfig >= 0.9
 BuildRequires: popt-devel
 BuildRequires: gcc-c++
+BuildRequires: annobin-plugin-gcc
 
 %description
 VCDImager allows you to create VideoCD BIN/CUE CD images from MPEG
@@ -58,12 +59,11 @@ applications that will use VCDImager.
 
 %build
 %configure --disable-static --disable-dependency-tracking
-make %{?_smp_mflags}
+%make_build V=0
 
 
 %install
-rm -rf %{buildroot}
-make DESTDIR=%{buildroot} install INSTALL="install -p"
+%make_install
 find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
 
 # Sometimes this file gets created... but we don't want it!
@@ -115,6 +115,9 @@ fi
 
 
 %changelog
+
+* Sun Apr 17 2022 David Vásquez <davidva AT tutanota DOT com> - 2.0.1-8
+- Rebuilt 
 
 * Thu Apr 09 2020 David Vásquez <davidva AT tutanota DOT com> - 2.0.1-7
 - Rebuilt for libcdio
